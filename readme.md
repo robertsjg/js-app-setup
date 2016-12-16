@@ -22,5 +22,6 @@ Local web server: http-server,live-server, Express,budo, webpack dev server,
 browsersync
 share wip servers:Localtunnel, ngrok, now,surge
 automation tools: grunt, gulp, npm scripts
+travis ci is easily integrated into a Github hosted repo
  
 
