@@ -12,16 +12,25 @@ transpile with Babel
 bundling with ES6 modules & webpack
 sourcemaps allows transpiled code to be debugged in browser
 Linter is ESLint
-Test framework; Mocha
+Test Framework; Mocha
 Test Assertions; Chai
 Test Helpers; JSDOM
 Test Runner; node
-Test colocated with src code, Unit tests run on save
-options -
+Test co-located with src code, Unit tests run on save
+Continuous Integration with TravisCI
+
+Options -
 Local web server: http-server,live-server, Express,budo, webpack dev server, 
 browsersync
 share wip servers:Localtunnel, ngrok, now,surge
 automation tools: grunt, gulp, npm scripts
-travis ci is easily integrated into a Github hosted repo
+travis ci (Linux hosted) is easily integrated into a Github hosted repo (AppVeyor is a windows alternative)
+
+Useful Info -
+* ssh setup with git - https://help.github.com/articles/generating-an-ssh-key/
+* visual studio code customization - https://code.visualstudio.com/docs/customization/userandworkspace
+* node js projects & TravisCI - https://docs.travis-ci.com/user/languages/javascript-with-nodejs
+
+
  
 
