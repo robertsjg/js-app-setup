@@ -11,7 +11,7 @@
         "security-check": "nsp check",
         "localtunnel": "lt --port 3000 --subdomain jgroberts",
         "share": "npm-run-all --parallel open:src localtunnel",
-        "test": "mocha --reporter progress buildscripts/testSetup.js \"src/**/*.test.js\"",
+        "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
         "test-watch": "npm run test -- --watch"
     },
     "author": "Cory House",
