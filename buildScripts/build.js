@@ -23,7 +23,7 @@ webpack(webpackConfig).run((err, stats) => {
         jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)))
     }
 
-    console.log('Webpack stats: ${stats}');
+    console.log(`Webpack stats: ${stats}`);
 
     console.log('Your app has been built for production and written to /dist');
     return 0;

@@ -2,9 +2,7 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
-import config from '../webpack.config.dev'
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
+import config from '../webpack.config.dev';
 import compression from 'compression';
 
 /* eslint-disable no-console */
@@ -19,7 +17,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use(compression()); //gzip compression
-app.use(webpackHotMiddleware(compiler));
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../src/index.html'));
