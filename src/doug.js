@@ -1,3 +1,9 @@
+// growth of json v xml
+// https://www.google.com/trends/explore?q=xml,json
+
+// Biggest gotcha in js is binary floating point calculations
+// seee http://floating-point-gui.de/basic/
+
 // Douglas Crawford - how to write js functions
 function constructor(spec) {
     var that = other_ctor(spec),
