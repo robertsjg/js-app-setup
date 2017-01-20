@@ -7,7 +7,7 @@ Curly braces - pop up to same line to avoid issues with return statements and au
 Equals == operator will try and convert the two types it is operating on to be the same
 If use === operator then there is no auto type conversion on equality
 Rule -
-Generally use triple equals not double equals operator
+Generally use triple equals not double equals operator (add eslint rule "eqeqeq": [2, "smart"],)
 
 To check if an object exists use 
 if(typeof x !== 'undefined'){

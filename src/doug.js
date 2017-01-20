@@ -5,6 +5,7 @@
 // seee http://floating-point-gui.de/basic/
 
 // Douglas Crawford - how to write js functions
+/*  eslint-disable no-unused-vars, no-undef */
 function constructor(spec) {
     var that = other_ctor(spec),
         member, method = function() {
