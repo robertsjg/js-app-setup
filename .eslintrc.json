@@ -16,7 +16,9 @@
     },
     "rules": {
         "no-console": 1,
+        "semi": "always", // default btw
         "eqeqeq": [2, "smart"],
-        "quotes": [2, "single"]
+        "quotes": [2, "single"],
+        "no-shadow": ["error", { "builtinGlobals": true }]
     }
 }

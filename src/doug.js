@@ -2,7 +2,7 @@
 // https://www.google.com/trends/explore?q=xml,json
 
 // Biggest gotcha in js is binary floating point calculations
-// seee http://floating-point-gui.de/basic/
+// see http://floating-point-gui.de/basic/
 
 // Douglas Crawford - how to write js functions
 /*  eslint-disable no-unused-vars, no-undef */
