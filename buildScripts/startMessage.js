@@ -1,5 +1,4 @@
-//var chalk = require('chalk');
-import chalk from 'chalk';
+import chalk from 'chalk'; // chalk = terminal string styling lib
 
 /* eslint-disable no-console */
 

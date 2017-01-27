@@ -1,10 +1,11 @@
-var express = require('express');
+'use strict';
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+
 var app = express();
 
-var bodyParser = require('body-parser');
-
 // code to persist in mongo
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/api');
 
 app.use(bodyParser.json());

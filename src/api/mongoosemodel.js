@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 // example schema definition
 var gooseSchema = mongoose.Schema({
     stringkey1: String,

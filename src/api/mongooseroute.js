@@ -1,5 +1,5 @@
-var _ = require('lodash');
-var ApiMongooseSchema = require('../mongoosemodel.js');
+import _ from 'lodash';
+import ApiMongooseSchema from '../mongoosemodel.js';
 
 module.exports = function(app) {
 
