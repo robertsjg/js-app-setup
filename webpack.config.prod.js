@@ -20,6 +20,9 @@ export default {
         filename: '[name].[chunkhash].js'
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
         // generate a css file with hashed filename
         new ExtractTextPlugin('[name].[conthash].css'),
         // cache bust so file names change when their content changes
@@ -55,4 +58,4 @@ export default {
             { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap') }
         ]
     }
-}
+};

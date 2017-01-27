@@ -4,6 +4,7 @@ import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import compression from 'compression';
+import webpackhotmiddleware from 'webpack-hot-middleware';
 
 /* eslint-disable no-console */
 
@@ -11,9 +12,16 @@ const port = 3000;
 const app = express();
 const compiler = webpack(config);
 
+
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath
+    hot: true,
+    publicPath: config.output.publicPath,
+    stats: { colors: true }
+}));
+
+app.use(webpackhotmiddleware(compiler, {
+    log: console.log
 }));
 
 app.use(compression()); //gzip compression
