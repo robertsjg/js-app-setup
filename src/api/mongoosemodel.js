@@ -1,3 +1,4 @@
+'use strict';
 import mongoose from 'mongoose';
 
 // example schema definition
@@ -14,4 +15,4 @@ var gooseSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('ApiMongooseSchema', gooseSchema);
+export default mongoose.model('ApiMongooseSchema', gooseSchema);

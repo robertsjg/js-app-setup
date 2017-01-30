@@ -1,7 +1,8 @@
+'use strict';
 import _ from 'lodash';
 import ApiMongooseSchema from '../api/mongoosemodel.js';
 
-module.exports = function(app) {
+export default function(app) {
 
     /* New */
     app.post('/api', function(req, res) {
@@ -45,9 +46,9 @@ module.exports = function(app) {
             }
             if (apiobject) {
                 _.merge(apiobject, req.body);
-                apiobject.save(function(err) {
-                    if (err) {
-                        res.json({ info: 'error during update', error: err });
+                apiobject.save(function(saveerr) {
+                    if (saveerr) {
+                        res.json({ info: 'error during update', error: saveerr });
                     }
                     res.json({ info: 'Updated successfully' });
                 });
@@ -66,6 +67,4 @@ module.exports = function(app) {
             res.json({ info: 'Removed ok' });
         });
     });
-
-
-};
+}
