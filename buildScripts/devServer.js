@@ -1,8 +1,9 @@
 import webpack from 'webpack';
 import open from 'open';
 import webpackdevserver from 'webpack-dev-server';
-//var WebpackDevServer = require('webpack-dev-server')
 import config from '../webpack.config.dev';
+import morgan from 'morgan';
+import fs from 'file-system';
 
 /* eslint-disable no-console */
 
@@ -23,9 +24,15 @@ var webServerConfig = {
 };
 const port = 3000;
 
-var server = new webpackdevserver(compiler, webServerConfig);
+var app = new webpackdevserver(compiler, webServerConfig);
 
-server.listen(port, function(err) {
+var accessLogStream = fs.createWriteStream(__dirname + '/access.log', { flags: 'a' })
+
+// setup the logger
+app.use(morgan('combined', { stream: accessLogStream }))
+
+
+app.listen(port, function(err) {
     if (err) {
         console.log(err);
     } else {
