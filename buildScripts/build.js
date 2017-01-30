@@ -5,7 +5,7 @@ import chalk from 'chalk';
 
 process.env.NODE_ENV = 'production';
 
-console.log('Generating minified bundle for production. This will take a moment')
+console.log('Generating minified bundle for production. This will take a moment');
 
 webpack(webpackConfig).run((err, stats) => {
     if (err) {
@@ -20,7 +20,7 @@ webpack(webpackConfig).run((err, stats) => {
 
     if (jsonStats.hasWarnings) {
         console.log(chalk.yellow('Webpack generated the following warnings: '));
-        jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)))
+        jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)));
     }
 
     console.log(`Webpack stats: ${stats}`);

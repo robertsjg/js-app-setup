@@ -3,6 +3,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
+/* eslint-disable no-console */
+
 var app = express();
 
 // code to persist in mongo
@@ -13,8 +15,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-var api = require('./api/mongooseroute.js')(app);
+require('./api/mongooseroute.js')(app);
 
-var server = app.listen(3001, function() {
+app.listen(3001, function() {
     console.log('Server running at http://127.0.0.1:3001/');
 });

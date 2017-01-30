@@ -36,7 +36,7 @@ export default {
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel'] },
             { test: /\.css$/, loaders: ['style', 'css'] },
-            { test: /\.html$/, loader: "raw-loader" } // loaders: ['raw-loader'] is also perfectly acceptable.
+            { test: /\.html$/, loader: 'raw-loader' } // loaders: ['raw-loader'] is also perfectly acceptable.
         ]
     }
 };

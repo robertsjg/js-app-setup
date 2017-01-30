@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import ApiMongooseSchema from '../mongoosemodel.js';
+import ApiMongooseSchema from '../api/mongoosemodel.js';
 
 module.exports = function(app) {
 
@@ -9,7 +9,7 @@ module.exports = function(app) {
         newApi.save(function(err) {
             if (err) {
                 res.json({ info: 'error during create', error: err });
-            };
+            }
             res.json({ info: 'Created successfully' });
         });
     });
@@ -19,7 +19,7 @@ module.exports = function(app) {
         ApiMongooseSchema.find(function(err, apiobjects) {
             if (err) {
                 res.json({ info: 'not found', error: err });
-            };
+            }
             res.json({ info: 'Found successfully', data: apiobjects });
         });
     });
@@ -28,8 +28,8 @@ module.exports = function(app) {
         ApiMongooseSchema.findById(req.params.id, function(err, apiobject) {
             if (err) {
                 res.json({ info: 'not found', error: err });
-            };
-            if (apiobjectt) {
+            }
+            if (apiobject) {
                 res.json({ info: 'Found successfully', data: apiobject });
             } else {
                 res.json({ info: 'object not found' });
@@ -42,13 +42,13 @@ module.exports = function(app) {
         ApiMongooseSchema.findById(req.params.id, function(err, apiobject) {
             if (err) {
                 res.json({ info: 'error', error: err });
-            };
+            }
             if (apiobject) {
                 _.merge(apiobject, req.body);
                 apiobject.save(function(err) {
                     if (err) {
                         res.json({ info: 'error during update', error: err });
-                    };
+                    }
                     res.json({ info: 'Updated successfully' });
                 });
             } else {
@@ -62,7 +62,7 @@ module.exports = function(app) {
         ApiMongooseSchema.findByIdAndRemove(req.params.id, function(err) {
             if (err) {
                 res.json({ info: 'error', error: err });
-            };
+            }
             res.json({ info: 'Removed ok' });
         });
     });
