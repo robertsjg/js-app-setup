@@ -4,10 +4,12 @@ import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import compression from 'compression';
+import dotenv from 'dotenv';
 
 /* eslint-disable no-console */
 
-const port = 3000;
+dotenv.config();
+const port = process.env.SERVER_PORT;
 const app = express();
 const compiler = webpack(config);
 

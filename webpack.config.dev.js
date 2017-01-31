@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 
 export default {
+    name: 'client',
     debug: true,
     devtool: 'inline-source-map',
     noInfo: false,
@@ -40,3 +41,10 @@ export default {
         ]
     }
 };
+
+/*[,
+    {
+        name: 'server',
+        entry: '.src/api/index.js',
+        target: 'node'
+    }];*/
