@@ -2,10 +2,10 @@ import webpack from 'webpack';
 import open from 'open';
 import webpackdevserver from 'webpack-dev-server';
 import config from '../webpack.config.dev';
-import morgan from 'morgan';
-import log4js from 'log4js';
+import morgan from 'morgan'; // http logging
+import log4js from 'log4js'; // app logging
 import fs from 'file-system';
-import cors from 'cors';
+import cors from 'cors'; // Cross-Origin Resource Sharing
 import favicon from 'serve-favicon';
 
 /* eslint-disable no-console */
@@ -39,7 +39,7 @@ var corsOptions = {
     }
 };
 
-app.use(favicon(__dirname + '/favicon.png'));
+app.use(favicon('favicon.png'));
 
 var log = log4js.getLogger('devServer');
 // setup the http logger (using Morgan)
