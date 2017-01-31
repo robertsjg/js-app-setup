@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 /* eslint-disable no-console */
 
 dotenv.config();
-const port = process.env.SERVER_PORT;
+const port = process.env.NODE_PORT;
 const app = express();
 
 app.use(compression());

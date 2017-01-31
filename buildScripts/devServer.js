@@ -32,7 +32,7 @@ var webServerConfig = {
     }
 };
 
-const port = process.env.SERVER_PORT;
+const port = process.env.NODE_PORT;
 var app = new webpackdevserver(compiler, webServerConfig);
 
 app.use(cors());
