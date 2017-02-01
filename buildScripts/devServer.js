@@ -13,7 +13,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+log4js.configure(process.env.LOG4JS_CONFIG_FILE);
+
 var log = log4js.getLogger('devServer');
+
 log.info('Starting server initialization');
 
 const compiler = webpack(config);
@@ -49,7 +52,7 @@ var corsOptions = {
 app.use(favicon('favicon.png'));
 
 // setup the http logger (using Morgan)
-var accessLogStream = fs.createWriteStream(__dirname + '/access.log', { flags: 'a' });
+var accessLogStream = fs.createWriteStream('./log/access.log', { flags: 'a' });
 app.use(morgan('combined', { stream: accessLogStream }));
 
 app.use(function(req, res, next) {
