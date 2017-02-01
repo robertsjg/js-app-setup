@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import open from 'open';
+import opendist from 'open';
 import compression from 'compression';
 import dotenv from 'dotenv';
 
@@ -21,6 +21,6 @@ app.listen(port, function(err) {
     if (err) {
         console.log(err);
     } else {
-        open('http://localhost:' + port);
+        opendist('http://localhost:' + port);
     }
 });

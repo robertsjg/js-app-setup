@@ -10,7 +10,7 @@ export default {
     devtool: 'source-map',
     noInfo: false,
     entry: {
-        vendor: path.resolve(__dirname, 'src/vendor'),
+        vendor: path.resolve(__dirname, 'src/api/vendor'),
         main: path.resolve(__dirname, 'src/index')
     },
     target: 'web',

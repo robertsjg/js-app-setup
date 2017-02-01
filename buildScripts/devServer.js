@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import open from 'open';
+import opendev from 'open';
 import webpackdevserver from 'webpack-dev-server';
 import config from '../webpack.config.dev';
 import morgan from 'morgan'; // http logging
@@ -9,7 +9,7 @@ import cors from 'cors'; // Cross-Origin Resource Sharing
 import favicon from 'serve-favicon';
 import dotenv from 'dotenv';
 
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-unused-vars */
 
 dotenv.config();
 
@@ -75,7 +75,7 @@ app.listen(port, function(err) {
     if (err) {
         log.Error('We have a problem', err);
     } else {
-        open('http://localhost:' + port);
+        opendev('http://localhost:' + port);
         log.info('Server initialized');
         console.info('==> 🌎 Listening on port %s', port);
     }

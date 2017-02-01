@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import open from 'open';
+import opensrc from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import compression from 'compression';
@@ -31,6 +31,6 @@ app.listen(port, function(err) {
     if (err) {
         console.log(err);
     } else {
-        open('http://localhost:' + port);
+        opensrc('http://localhost:' + port);
     }
 });
