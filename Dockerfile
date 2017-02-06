@@ -1,7 +1,7 @@
 FROM node:latest
-MAINTAINER gareth.xxxx@xmail.com
+MAINTAINER admin.xxxx@xmail.com
 
-#RUN adduser --system --no-create-home app && npm install -g npm@4.1.2
+RUN apt-get -qq update -y && apt-get -qq install vim
 RUN useradd --user-group --create-home --shell /bin/false app
 ENV HOME=/home/app
 COPY package.json $HOME
@@ -11,11 +11,10 @@ USER app
 WORKDIR $HOME
 RUN npm install
 
+
 USER root
 COPY . $HOME
-RUN chown -R app:app $HOME/*
+RUN chown -R app:app $HOME/* &&  npm install localtunnel -g
 USER app
-# application's default port
-#EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["npm run", "build"]

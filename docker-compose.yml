@@ -1,6 +1,5 @@
-starter-kit:
+js-starter-kit:
   build: .
   command: echo 'ready to build'
   ports:
     - '3000:3000'
-

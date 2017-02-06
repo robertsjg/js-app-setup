@@ -75,7 +75,7 @@ app.listen(port, function(err) {
     if (err) {
         log.Error('We have a problem', err);
     } else {
-        opendev('http://localhost:' + port);
+        opendev('http:0.0.0.0:' + port);
         log.info('Server initialized');
         console.info('==> 🌎 Listening on port %s', port);
     }
