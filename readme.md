@@ -60,6 +60,9 @@ git remote add origin @new-remote-git-url
 git push -u origin master  
 npm run reinstall
 
-
+### useful docker commands
+ docker-machine start
+ docker-compose up --build -d
+ docker run -d -p 3000:3000 --name js_node_test javascript_starter-kit
  
 

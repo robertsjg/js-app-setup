@@ -62,7 +62,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
-    log.Error('We have a problem', err);
+    log.error('We have a problem', err);
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
@@ -73,7 +73,7 @@ app.use(function(err, req, res, next) {
 
 app.listen(port, function(err) {
     if (err) {
-        log.Error('We have a problem', err);
+        log.error('We have a problem', err);
     } else {
         opendev('http:0.0.0.0:' + port);
         log.info('Server initialized');
