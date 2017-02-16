@@ -4,9 +4,7 @@ import webpack from 'webpack';
 
 export default {
     name: 'client',
-    debug: true,
     devtool: 'inline-source-map',
-    noInfo: false,
     entry: [
         'webpack-dev-server/client',
         'webpack/hot/dev-server',
@@ -20,14 +18,14 @@ export default {
         filename: 'bundle.js'
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            debug: true
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
         }),
-
         // ensures html file has ref to bundle.js
         new HtmlWebpackPlugin({
             template: 'src/index.html',
@@ -40,13 +38,29 @@ export default {
         })
     ],
     module: {
-        loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel'] },
-            { test: /\.css$/, loaders: ['style', 'css'] },
-            { test: /\.html$/, loaders: ['raw-loader'] }
+        rules: [{
+                test: /\.css$/,
+                use: [{
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ],
+            },
+            {
+                test: /\.html$/,
+                loader: 'raw-loader'
+            },
+            {
+                test: /\.jsx$/,
+                loader: 'babel-loader',
+                exclude: [/node_modules/]
+            }
         ]
     }
 };
+
 
 /*[,
     {

@@ -2,13 +2,11 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+//import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 
 export default {
-    debug: true,
     devtool: 'source-map',
-    noInfo: false,
     entry: {
         vendor: path.resolve(__dirname, 'src/api/vendor'),
         main: path.resolve(__dirname, 'src/index'),
@@ -25,7 +23,7 @@ export default {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
         // generate a css file with hashed filename
-        new ExtractTextPlugin('[name].[conthash].css'),
+        // new ExtractTextPlugin('[name].[conthash].css'),
         // cache bust so file names change when their content changes
         new WebpackMd5Hash(),
         // name must match key in entry (vendor)
@@ -65,14 +63,36 @@ export default {
             },
             inject: true
         }),
-        // Eliminate duplicate packages when generating bundle,
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin() // minify JS
     ],
     module: {
+        rules: [{
+                test: /\.css$/,
+                use: [{
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ],
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: [/node_modules/]
+            }
+        ]
+    }
+
+
+};
+
+/*
+
+ {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap') }
         ]
     }
-};
+    */
