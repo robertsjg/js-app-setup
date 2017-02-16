@@ -1,0 +1,45 @@
+import './canvas.css';
+
+if (process.env.NODE_ENV !== 'production') {
+    require('./canvas.html');
+} // this allows html live reload but prevents the html file being pulled in production
+
+/* eslint-disable no-console */
+
+//mothereffiinghsl.com
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+ctx.strikeStyle = '#BADASS';
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+ctx.lineWidth = 50;
+ctx.globalCompositeOperation = 'multiply';
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+let hue = 0;
+
+function draw(e) {
+    if (!isDrawing) return;
+    console.log(e);
+    ctx.strokeStyle = `hsl(${hue},100%, 50%)`;
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+
+    // ES6 multi assign
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+    hue++;
+}
+
+canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);

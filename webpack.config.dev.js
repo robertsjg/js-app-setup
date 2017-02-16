@@ -10,7 +10,8 @@ export default {
     entry: [
         'webpack-dev-server/client',
         'webpack/hot/dev-server',
-        path.resolve(__dirname, 'src/index')
+        path.resolve(__dirname, 'src/index'),
+        path.resolve(__dirname, 'src/canvas')
     ],
     target: 'web',
     output: {
@@ -30,6 +31,11 @@ export default {
         // ensures html file has ref to bundle.js
         new HtmlWebpackPlugin({
             template: 'src/index.html',
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/canvas.html',
+            filename: 'canvas.html',
             inject: true
         })
     ],

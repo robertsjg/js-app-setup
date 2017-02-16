@@ -11,7 +11,8 @@ export default {
     noInfo: false,
     entry: {
         vendor: path.resolve(__dirname, 'src/api/vendor'),
-        main: path.resolve(__dirname, 'src/index')
+        main: path.resolve(__dirname, 'src/index'),
+        canvas: path.resolve(__dirname, 'src/canvas')
     },
     target: 'web',
     output: {
@@ -34,6 +35,22 @@ export default {
         }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
+            },
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/canvas.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
